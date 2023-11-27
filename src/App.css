@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url('background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.app {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.game {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 2px dashed aliceblue;
+    border-radius: 7px;
+    /* box-shadow: 2px cadetblue; */
+    background-color: aliceblue;
+    position: relative;
+  }
+.game .img-container{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
 }
 
-.App-logo {
-  height: 40vmin;
+.game img {
+  width: 100%;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.game .img-container.horizontal::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  height: 5px;
+  width: 80%;
+  background-color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.game .img-container.horizontal::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  height: 5px;
+  width: 80%;
+  background-color: #fff;
+}
+
+.game .img-container.vertical::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  width: 5px;
+  height: 80%;
+  background-color: #fff;
+}
+
+.game .img-container.vertical::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  width: 5px;
+  height: 80%;
+  background-color: #fff;
+}
+
+.score-board{
+  font-size: 25px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #fe76b4;
+  color: #fff;
+  border-radius: 15px;
+  border: 2px solid #fff;
+}
+.turns-board{
+    font-size: 25px;
+    position: fixed;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    right: 0px;
+    top: 0px;
+}
+.target-board{
+    font-size: 25px;
+    position: fixed;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    left: 0px;
+    top: 0px;
+}
+.record-table{
+  font-size: 25px;
+    position: fixed;
+    padding: 20px;
+    background-color: #fe76b4;
+    color: #fff;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    font-family: 'Pacifico', cursive;
+    right: 30px;
+    top: 250px;
+}
+.board{
+  text-align: center;
+  padding: 40px 80px;
+  background-color: green;
+}
+.text-result{
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn{
+  margin-top: 20px;
+}
+.btn button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  margin: 0px 10px;
+  background-color: yellow;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game .animate{
+  position: absolute;
+  transition: .1s ease-out;
+  background-color: #99cfff;
+}
+
+.game .animate.animateRow{
+  width: 100% !important;
+}
+
+.game .animate.animateCol{
+  height: 100% !important;
 }
